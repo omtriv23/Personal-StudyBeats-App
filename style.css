@@ -1,0 +1,61 @@
+/* Main CSS code file for my study app */
+:root {
+    --dark-indigo: #0b055e;
+    --purple: #2a1fb8;
+    --light-purple: #8d86e7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-indigo);
+    color: white;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.welcome-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+}
+
+.welcome-screen h2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    color: var(--purple);
+}
+
+.welcome-screen p {
+    max-width: 350px;
+    line-height: 1.6; /* adds greater spacing between horizontal lines of p-tag's text */
+    margin-bottom: 2.5rem;
+}
+
+.get-started {
+    background-color: var(--light-purple);
+    color: var(--dark-indigo);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    width: 180px;
+    height: 60px;
+    padding: 10px;
+    border: 5px solid var(--purple);
+    border-radius: 10px;
+    font-size: 20px;
+}

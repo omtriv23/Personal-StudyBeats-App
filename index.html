@@ -12,15 +12,21 @@
     </head>
     <body>
         <main class="welcome-screen">
-            <h1>Study Beats!</h1>
-            <h2>Your focus, your music, your pace.</h2>
-            <p>
+            <h1 id="appName">Study Beats!</h1>
+            <h2 id="appTargetLine">Your focus, your music, your pace.</h2>
+            <p id="appSummary">
                 Create customized playlists, import your favorite
                 study music, and set timers to keep you on task
                 along with a few breaks here and there. Structure
                 personalized study sessions with StudyBeats.
             </p>
-            <button class="get-started" id="getStarted" onclick="welcomeAlert">Get Started</button>
+            <button class="get-started" id="getStarted">Get Started</button>
+            <div class="welcome-modal" id="welcomeModal">
+                <div class="welcome-modal-content">
+                    <h2>Welcome to StudyBeats!</h2>
+                </div>
+                <button class="close-message" id="closeMessage">Close Message</button>
+            </div>
         </main>
         <script src="script.js"></script>
     </body>

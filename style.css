@@ -30,19 +30,19 @@ body {
     padding: 2rem;
 }
 
-.welcome-screen h1 {
+#appName {  /* First h1 tag */
     font-size: 3rem;
     margin-bottom: 0.75rem;
 }
 
-.welcome-screen h2 {
+#appTargetLine {  /* First h2 tag */
     font-size: 1.4rem;
     font-weight: normal;
     margin-bottom: 1.5rem;
     color: var(--purple);
 }
 
-.welcome-screen p {
+#appSummary {  /* First p-tag */
     max-width: 350px;
     line-height: 1.6; /* adds greater spacing between horizontal lines of p-tag's text */
     margin-bottom: 2.5rem;
@@ -58,4 +58,32 @@ body {
     border: 5px solid var(--purple);
     border-radius: 10px;
     font-size: 20px;
+}
+
+.close-message {
+    background-color: var(--light-purple);
+    color: var(--dark-indigo);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    width: 180px;
+    height: 60px;
+    padding: 10px;
+    border: 5px solid var(--purple);
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.welcome-modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    place-content: center;
+    height: 80vh;
+    width: 60vw;
+    background-color: var(--light-purple);
+    color: var(--dark-indigo);
+    border-radius: 7px;
+}
+
+.welcome-modal-content > h2 {
+    margin-bottom: 50px;
 }

@@ -100,7 +100,7 @@ body {
 }
 
 .main-modal-content > h1 {
-    margin-top: 5%;
+    margin-top: 5vh;
 }
 
 .create-playlist {  /* Create playlist button css code */
@@ -117,4 +117,16 @@ body {
 
 #playlistForm {
     display: none;
+    background-color: var(--light-purple);
+    align-items: center;
+    margin: 5vw;
+    height: 50vh;
+}
+
+#playlists {
+    display: flex;
+    direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
 }

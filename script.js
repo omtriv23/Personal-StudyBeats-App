@@ -7,7 +7,11 @@ const closeModalButton = document.getElementById("closeMessage");
 const mainModal = document.querySelector(".main-modal");
 const createPlaylistButton = document.getElementById("createPlaylist");
 const playlistForm = document.getElementById("playlistForm");
-const playlistFormSubmit = document.getElementById("playlistFormSubmit");
+// const playlistFormSubmit = document.getElementById("playlistFormSubmit");
+// const playlistsArray = [];  
+
+// localStorage.setItem = ("playlists", playlistsArray);
+// localStorage.setItem = ("playlists", JSON.stringify(playlistsArray));
 
 // Functions for changing the CSS to display/hide the welcome modal
 function welcomeMessage() {
@@ -65,15 +69,16 @@ createPlaylistButton.addEventListener('click', displayPlaylistForm);
 
 playlistForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    closePlaylistForm();
 
-    const playlistName = document.getElementById('playlistInput').value;
+    const playlistName = document.getElementById('playlistInput').value.trim();
 
-    if (playlistName.trim() === "") {
+    if (playlistName === "") {
         console.log("Playlist name left empty");
     } else {
         console.log(`User has inputted playlist: ${playlistName}.`);
         createNewPlaylist(playlistName);
+        document.getElementById("playlistInput").value = ""; // reset form input after playlist created
+        closePlaylistForm();
         createPlaylistButton.style.display = "block";
     }
 });

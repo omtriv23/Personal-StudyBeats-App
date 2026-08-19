@@ -49,7 +49,13 @@ function closePlaylistForm() {
 
 function createNewPlaylist(playlistName) {
     const newPlaylist = document.createElement("div");
+    const playlistText = document.createElement("span");
     newPlaylist.textContent = playlistName;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.style.marginLeft = "auto";
+    deleteButton.style.cursor = "pointer";
 
     newPlaylist.style.display = "flex";
     newPlaylist.style.justifyContent = "center";
@@ -66,6 +72,14 @@ function createNewPlaylist(playlistName) {
 
     const playlistsContainer = document.getElementById("playlists");
     playlistsContainer.appendChild(newPlaylist);
+    newPlaylist.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', function() {
+        newPlaylist.remove();
+        playlistsArray.indexOf(newPlaylist);
+        playlistsArray.splice(newPlaylist, 1);
+        localStorage.setItem("playlists", JSON.stringify(playlistsArray));
+    });
 }
 
 // Wait for user to click a button to open/close the welcome modal

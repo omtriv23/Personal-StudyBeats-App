@@ -7,6 +7,9 @@ const closeModalButton = document.getElementById("closeMessage");
 const mainModal = document.querySelector(".main-modal");
 const createPlaylistButton = document.getElementById("createPlaylist");
 const playlistForm = document.getElementById("playlistForm");
+const editModal = document.querySelector(".edit-modal");
+const editModalHeader = document.getElementById("editModalHeader");
+const closeEditButton = document.getElementById("closeEdit");
 // const playlistFormSubmit = document.getElementById("playlistFormSubmit");
 const playlistsArray = [];
 
@@ -50,10 +53,13 @@ function closePlaylistForm() {
 function createNewPlaylist(playlistName) {
     const newPlaylist = document.createElement("div");
     const playlistText = document.createElement("span");
-    newPlaylist.textContent = playlistName;
+    playlistText.textContent = playlistName;
 
     const deleteButton = document.createElement("button");
+    const editButton = document.createElement("button");
+
     deleteButton.textContent = "Delete";
+    editButton.textContent = "Edit";
     deleteButton.style.marginLeft = "auto";
     deleteButton.style.cursor = "pointer";
 
@@ -71,14 +77,22 @@ function createNewPlaylist(playlistName) {
     newPlaylist.style.border = "4px solid var(--purple)";
 
     const playlistsContainer = document.getElementById("playlists");
+    newPlaylist.append(playlistText);
     playlistsContainer.appendChild(newPlaylist);
     newPlaylist.appendChild(deleteButton);
+    newPlaylist.appendChild(editButton);
 
     deleteButton.addEventListener('click', function() {
+        const playlistIndex = playlistsArray.indexOf(playlistName);
         newPlaylist.remove();
-        playlistsArray.indexOf(newPlaylist);
-        playlistsArray.splice(newPlaylist, 1);
+        playlistsArray.splice(playlistIndex, 1);
         localStorage.setItem("playlists", JSON.stringify(playlistsArray));
+    });
+
+    editButton.addEventListener('click', function() {
+        editModalHeader.textContent = playlistName;
+        mainModal.style.display = "none";
+        editModal.style.display = "flex";
     });
 }
 
@@ -103,4 +117,9 @@ playlistForm.addEventListener('submit', function(event) {
         closePlaylistForm();
         createPlaylistButton.style.display = "block";
     }
+});
+
+closeEditButton.addEventListener('click', function() {
+    editModal.style.display = "none";
+    mainModal.style.display = "block";
 });
